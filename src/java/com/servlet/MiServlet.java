@@ -9,6 +9,7 @@ import com.bean.JavaBeanActor;
 import com.entidades.Actor;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -58,7 +59,34 @@ public class MiServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            JavaBeanActor jba = new JavaBeanActor();
+            List<Actor> listaActor = jba.buscarTodos();
+            
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet MiServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet listado de personas</h1>");
+            out.println("<table>");
+               out.println("<tr>");
+                out.println("<td>Nombre</td>");
+                out.println("<td>Apellido</td>");
+                out.println("</tr>");
+             for(Actor act : listaActor){
+                out.println("<tr>");
+                out.println("<td>"+act.getFirstName()+"</td>");
+                out.println("<td>"+act.getLastName()+"</td>");
+                out.println("</tr>");
+            }
+            out.println("</table>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     /**

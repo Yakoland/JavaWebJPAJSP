@@ -12,10 +12,13 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="ServletAplicacion" method="post">
+        <form action="ServletAplicacion" method="POST">
             nombre : <input type="text" name="nombre"/><br/>
             apellido : <input type="text" name="apellido"/><br/>
-            <input type="submit" value ="Guardar" />
+            <input type="submit" value ="Guardar" /><br/>
+        </form>
+        <form action="ServletAplicacion" method="GET">
+            <input type="submit" value ="Consultar" />
         </form>
     </body>
 </html>

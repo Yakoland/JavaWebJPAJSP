@@ -7,6 +7,7 @@ package com.bean;
 
 import com.entidades.Actor;
 import com.jpa.controlador.ActorJpaController;
+import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -23,5 +24,8 @@ public class JavaBeanActor {
     }
     public void Guardar(Actor actor){
         ActorControl.create(actor);
+    }
+    public List<Actor> buscarTodos(){
+        return ActorControl.findActorEntities();
     }
 }
