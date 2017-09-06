@@ -12,8 +12,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-        identificacion : <input type="text" name="identificacion"/><br/>
-        nombre : <input type="text" name="nombre"/><br/>
-        <input type="submit" value ="Guardar" /> 
+        <form action="ServletAplicacion" method="post">
+            nombre : <input type="text" name="nombre"/><br/>
+            apellido : <input type="text" name="apellido"/><br/>
+            <input type="submit" value ="Guardar" />
+        </form>
     </body>
 </html>
